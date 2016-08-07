@@ -19,9 +19,9 @@ public class GladiolusSearch {
         WebDriver driver = new FirefoxDriver();
 //        WebDriver driver = new ChromeDriver();
 
-//        driver.get("http://www.google.com");
+//        driver.get("http://www.r5am.ru");
         driver.get("http://www.google.com");
-        //Navigation.to("http://www.google.com");
+//        driver.get("http://www.google.com");
 
         WebElement element = driver.findElement(By.name("q"));
 

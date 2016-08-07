@@ -10,11 +10,14 @@
 
 // Применить плагин java, чтобы добавить поддержку для Java
 apply plugin: 'java'
+apply plugin: 'application'
+/*    apply plugin: 'com.github.johnrengelman.shadow'    */
 
-/*
 // Класс с точкой входа main()
-mainClassName = 'ru.r5am.GladiolusSearch'
-*/
+mainClassName = 'main.java.ru.r5am.GladiolusSearch'
+[ compileJava, compileTestJava ]*.options*.encoding = 'UTF-8'
+
+
 
 // Объявление мест поиска зависимостей для проекта
 repositories {
@@ -39,9 +42,25 @@ dependencies {
     // The production code uses the SLF4J logging API at compile time
     compile 'org.slf4j:slf4j-api:1.7.21'
 
+    // Selenium 2.53.1 работает с FF 47.0.1
     compile 'org.seleniumhq.selenium:selenium-java:2.53.1'
 
     testCompile 'com.codeborne:selenide:3.7'
+}
+
+jar {
+     baseName = 'gladiolussearch'
+     version =  '1.0'
+     manifest {
+       	       attributes("Generated-By": "Gradle",
+         	   "Main-Class": mainClassName, 
+		       "Built-By": "Александр Ящук (Aleksandr Jashhuk), R5AM",
+		 /*      "Class-Path": "library/help-share.jar library/jewt.jar library/ohj.jar library/oracle_ice.jar library/share.jar library/jssc-2.8.0.jar library/nproperty-1.4.jar" */
+			 )
+     }
+}
+
+
 /*
     // Declare the dependency for your favourite test framework you want to use in your tests.
     // TestNG is also supported by the Gradle Test task. Just change the
@@ -49,4 +68,4 @@ dependencies {
     // 'test.useTestNG()' to your build script.
     testCompile 'junit:junit:4.12'
 */
-}
+
