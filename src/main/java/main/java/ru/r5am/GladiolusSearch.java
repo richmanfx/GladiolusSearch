@@ -7,6 +7,7 @@ package main.java.ru.r5am;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -19,9 +20,10 @@ public class GladiolusSearch {
         WebDriver driver = new FirefoxDriver();
 //        WebDriver driver = new ChromeDriver();
 
-//        driver.get("http://www.r5am.ru");
+        // Максимизировать размер окна браузера
+        driver.manage().window().maximize();
+
         driver.get("http://www.google.com");
-//        driver.get("http://www.google.com");
 
         WebElement element = driver.findElement(By.name("q"));
 
